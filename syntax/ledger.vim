@@ -47,6 +47,7 @@ highlight default link ledgerTag Type
 highlight default link ledgerTagPop Tag
 highlight default link ledgerTagPush Tag
 highlight default link ledgerAccount Identifier
+highlight default link ledgerComment Comment
  
 " syncinc is easy: search for the first transaction.
 syn sync clear
