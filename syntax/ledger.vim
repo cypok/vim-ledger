@@ -30,7 +30,7 @@ syn match ledgerComment /^;.*$/
 " comments at eol must be preceeded by at least 2 spaces / 1 tab
 syn region ledgerMetadata start=/\%(  \|\t\|^\s\+\);/ skip=/^\s\+;/ end=/^/
     \ keepend contained contains=ledgerTag,ledgerTypedTag
-syn match ledgerTag /:[^:]\+:/hs=s+1,he=e-1 contained
+syn match ledgerTag /:\%([^:]\+:\)\+/hs=s+1,he=e-1 contained
 syn match ledgerTag /\%(\%(;\|^tag\)[^:]\+\)\@<=[^:]\+:\ze[^:]\+$/ contained
 syn match ledgerTypedTag /\%(\%(;\|^tag\)[^:]\+\)\@<=[^:]\+::\ze[^:]\+$/ contained
 
@@ -48,9 +48,9 @@ highlight default link ledgerTagPop Tag
 highlight default link ledgerTagPush Tag
 highlight default link ledgerAccount Identifier
 highlight default link ledgerComment Comment
- 
+
 " syncinc is easy: search for the first transaction.
 syn sync clear
 syn sync match ledgerSync grouphere ledgerTransaction "^[[:digit:]~]"
- 
+
 let b:current_syntax = "ledger"
